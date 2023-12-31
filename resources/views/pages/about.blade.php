@@ -332,7 +332,7 @@
                 </div>
                 <div id="__framer-badge-container"></div>
 
-                <script src="{{ asset('./JS/about.js') }}"></script>
+                <script src="{{ secure_asset('./JS/about.js') }}"></script>
                 <!-- End of bodyEnd -->
             </div>
         </div>

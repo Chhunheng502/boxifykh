@@ -23,16 +23,16 @@ header('Access-Control-Allow-Headers: Content-Type');
     <!--========== CSS ==========-->
     <link
         rel="stylesheet"
-        href="{{ asset('./CSS/style.css') }}"
+        href="{{ secure_asset('./CSS/style.css') }}"
     >
     <link
         rel="stylesheet"
-        href="{{ asset('./CSS/framer.css') }}"
+        href="{{ secure_asset('./CSS/framer.css') }}"
     >
 
     <link
         rel="stylesheet"
-        href="{{ asset('./CSS/box.css') }}"
+        href="{{ secure_asset('./CSS/box.css') }}"
     >
     <link
         rel="stylesheet"
@@ -70,7 +70,7 @@ header('Access-Control-Allow-Headers: Content-Type');
         <nav class="nav bd-container">
             <img
                 class="nav_logo"
-                src="{{ asset('./IMG/logo.png') }}"
+                src="{{ secure_asset('./IMG/logo.png') }}"
             >
 
             <header
@@ -81,7 +81,7 @@ header('Access-Control-Allow-Headers: Content-Type');
                     <a href="{{ route('pages.home') }}"><img
                             style="margin-top: 8px;"
                             class="nav_logo"
-                            src="{{ asset('./IMG/logo.png') }}"
+                            src="{{ secure_asset('./IMG/logo.png') }}"
                         ></a>
 
                     <div
