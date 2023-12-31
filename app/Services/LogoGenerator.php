@@ -9,7 +9,7 @@ class LogoGenerator
 {
     public function generateLogo($companyName)
     {
-        for($i = 0; $i < 15; $i++) {
+        for($i = 0; $i < 6; $i++) {
             $styling = $this->randomizeStyling();
             $coorniate = rand(0, 3);
             $image = Image::canvas(400, 200, '#'.$styling['color']['code']);
@@ -26,7 +26,7 @@ class LogoGenerator
                 $textX = $image->getWidth() / 2;
                 $textY = $image->getHeight() / 2 + $icon->getHeight() / 2 + 10;
                 $image->text($companyName, $textX, $textY, function ($font) use ($styling) {
-                    $font->file(secure_url($styling['font']['path']));
+                    // $font->file(secure_url($styling['font']['path']));
                     $font->size(36);
                     $font->color('#FFFFFF');
                     $font->align('center');
@@ -44,7 +44,7 @@ class LogoGenerator
                 $textX = $image->getWidth() / 2;
                 $textY = $image->getHeight() / 2 - $icon->getHeight() / 2 - 10;
                 $image->text($companyName, $textX, $textY, function ($font) use ($styling) {
-                    $font->file(secure_url($styling['font']['path']));
+                    // $font->file(secure_url($styling['font']['path']));
                     $font->size(36);
                     $font->color('#FFFFFF');
                     $font->align('center');
