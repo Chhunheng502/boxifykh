@@ -15,11 +15,11 @@ class FeatureController extends Controller
 
     public function generateBrandingLogo(Request $request)
     {
-        File::cleanDirectory(public_path('/IMG/LOGO'));
+        File::cleanDirectory(secure_url('/IMG/LOGO'));
 
         (new LogoGenerator)->generateLogo($request->companyName);
 
-        $files = File::files(public_path('/IMG/LOGO'));
+        $files = File::files(secure_url('/IMG/LOGO'));
         $fileNames = [];
 
         foreach ($files as $file) {

@@ -15,7 +15,7 @@ class LogoGenerator
             $image = Image::canvas(400, 200, '#'.$styling['color']['code']);
 
             if ($coorniate == 0) {
-                $iconPath = public_path($styling['icon']['path']);
+                $iconPath = secure_url($styling['icon']['path']);
                 $icon = Image::make($iconPath);
                 $icon->resize(80, 80);
                 $icon->colorize(100, 100, 100);
@@ -26,14 +26,14 @@ class LogoGenerator
                 $textX = $image->getWidth() / 2;
                 $textY = $image->getHeight() / 2 + $icon->getHeight() / 2 + 10;
                 $image->text($companyName, $textX, $textY, function ($font) use ($styling) {
-                    $font->file(public_path($styling['font']['path']));
+                    $font->file(secure_url($styling['font']['path']));
                     $font->size(36);
                     $font->color('#FFFFFF');
                     $font->align('center');
                     $font->valign('middle');
                 });
             } elseif ($coorniate == 1) {
-                $iconPath = public_path($styling['icon']['path']);
+                $iconPath = secure_url($styling['icon']['path']);
                 $icon = Image::make($iconPath);
                 $icon->resize(80, 80);
                 $icon->colorize(100, 100, 100);
@@ -44,7 +44,7 @@ class LogoGenerator
                 $textX = $image->getWidth() / 2;
                 $textY = $image->getHeight() / 2 - $icon->getHeight() / 2 - 10;
                 $image->text($companyName, $textX, $textY, function ($font) use ($styling) {
-                    $font->file(public_path($styling['font']['path']));
+                    $font->file(secure_url($styling['font']['path']));
                     $font->size(36);
                     $font->color('#FFFFFF');
                     $font->align('center');
@@ -53,9 +53,9 @@ class LogoGenerator
             } elseif ($coorniate == 2) {
                 $text = $companyName;
                 $fontSize = 36;
-                $fontPath = public_path($styling['font']['path']);
+                $fontPath = secure_url($styling['font']['path']);
 
-                $iconPath = public_path($styling['icon']['path']);
+                $iconPath = secure_url($styling['icon']['path']);
                 $icon = Image::make($iconPath);
                 $icon->resize(80, 80);
                 $icon->colorize(100, 100, 100);
@@ -85,9 +85,9 @@ class LogoGenerator
             } elseif ($coorniate == 3) {
                 $text = $companyName;
                 $fontSize = 36;
-                $fontPath = public_path($styling['font']['path']);
+                $fontPath = secure_url($styling['font']['path']);
 
-                $iconPath = public_path($styling['icon']['path']);
+                $iconPath = secure_url($styling['icon']['path']);
                 $icon = Image::make($iconPath);
                 $icon->resize(80, 80);
                 $icon->colorize(100, 100, 100);
@@ -123,7 +123,7 @@ class LogoGenerator
                 $image->insert($icon, null, $iconX, $iconY);
             }
 
-            $image->save(public_path('IMG/LOGO/logo_'.rand(10000, 99999).'.jpg'));
+            $image->save(secure_url('IMG/LOGO/logo_'.rand(10000, 99999).'.jpg'));
         }
     }
 
