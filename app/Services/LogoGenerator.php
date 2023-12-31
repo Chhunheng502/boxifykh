@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 
 class LogoGenerator
 {
@@ -123,7 +124,8 @@ class LogoGenerator
                 $image->insert($icon, null, $iconX, $iconY);
             }
 
-            $image->save(secure_url('IMG/LOGO/logo_'.rand(10000, 99999).'.jpg'));
+            Storage::put(secure_url('IMG/LOGO/logo_'.rand(10000, 99999).'.jpg'), $image);
+            // $image->save(secure_url('IMG/LOGO/logo_'.rand(10000, 99999).'.jpg'));
         }
     }
 
