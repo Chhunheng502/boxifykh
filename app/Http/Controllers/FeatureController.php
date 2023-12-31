@@ -17,8 +17,6 @@ class FeatureController extends Controller
     {
         File::cleanDirectory(public_path('/IMG/LOGO'));
 
-        dd(file_get_contents('public/COLOR/color-code-01.txt'));
-
         (new LogoGenerator)->generateLogo($request->companyName);
 
         $files = File::files(public_path('/IMG/LOGO'));

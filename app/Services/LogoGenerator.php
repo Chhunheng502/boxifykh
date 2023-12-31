@@ -138,16 +138,16 @@ class LogoGenerator
         ];
 
         $fonts = [
-            ['path' => 'FONT\JosefinSans-Regular.ttf', 'status' => 'active'],
-            ['path' => 'FONT\PlayfairDisplay-Regular.otf', 'status' => 'active'],
-            ['path' => 'FONT\Poppins-Regular.otf', 'status' => 'active'],
-            ['path' => 'FONT\Roboto-Regular.ttf', 'status' => 'active'],
+            ['path' => 'FONT/JosefinSans-Regular.ttf', 'status' => 'active'],
+            ['path' => 'FONT/PlayfairDisplay-Regular.otf', 'status' => 'active'],
+            ['path' => 'FONT/Poppins-Regular.otf', 'status' => 'active'],
+            ['path' => 'FONT/Roboto-Regular.ttf', 'status' => 'active'],
         ];
 
         $icons = [
-            ['path' => 'ICON\abstract-shape_5969842.png', 'status' => 'active'],
-            ['path' => 'ICON\pie-chart_9521469.png', 'status' => 'active'],
-            ['path' => 'ICON\slack_3820314.png', 'status' => 'active'],
+            ['path' => 'ICON/abstract-shape_5969842.png', 'status' => 'active'],
+            ['path' => 'ICON/pie-chart_9521469.png', 'status' => 'active'],
+            ['path' => 'ICON/slack_3820314.png', 'status' => 'active'],
         ];
 
         return [
