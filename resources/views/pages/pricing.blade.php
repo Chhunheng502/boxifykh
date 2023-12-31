@@ -144,5 +144,5 @@
 @endsection
 
 @section('js')
-    <script src="./JS/box.js"></script>
+    <script src="{{ asset('./JS/box.js') }}"></script>
 @endsection
