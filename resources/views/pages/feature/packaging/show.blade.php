@@ -94,30 +94,30 @@
                         style="border-radius: 10px;"
                         width="400px"
                         height="400px"
-                        src="{{ secure_asset('IMG/PACKAGE/'.$fileName) }}"
+                        src="{{ asset('IMG/PACKAGE/'.$fileName) }}"
                     >
                 </div>
             @endforeach --}}
             <div style="position: relative">
                 <div class="image-container">
-                    <img id="main-image" src="{{ secure_asset('BOX/carton-box.jpg') }}" alt="Main Image">
+                    <img id="main-image" src="{{ asset('BOX/carton-box.jpg') }}" alt="Main Image">
                     <div>
-                        <img id="logo_01" src="{{ secure_asset('ICON/abstract-shape_5969842.png') }}" alt="Logo" width="50" height="50">
+                        <img id="logo_01" src="{{ asset('ICON/abstract-shape_5969842.png') }}" alt="Logo" width="50" height="50">
                         <div id="text_01">{{ $companyName }}</div>
                     </div>
                 </div>
             </div>
             <div class="image-container">
-                <img id="main-image" src="{{ secure_asset('BOX/open-white-box.jpg') }}" alt="Main Image">
+                <img id="main-image" src="{{ asset('BOX/open-white-box.jpg') }}" alt="Main Image">
                 <div>
-                    <img id="logo_02" src="{{ secure_asset('ICON/pie-chart_9521469.png') }}" alt="Logo" width="60" height="60">
+                    <img id="logo_02" src="{{ asset('ICON/pie-chart_9521469.png') }}" alt="Logo" width="60" height="60">
                     <div id="text_02">{{ $companyName }}</div>
                 </div>
             </div>
             <div class="image-container">
-                <img id="main-image" src="{{ secure_asset('BOX/tall-white-box.jpg') }}" alt="Main Image">
+                <img id="main-image" src="{{ asset('BOX/tall-white-box.jpg') }}" alt="Main Image">
                 <div>
-                    <img id="logo_03" src="{{ secure_asset('ICON/slack_3820314.png') }}" alt="Logo" width="60" height="60">
+                    <img id="logo_03" src="{{ asset('ICON/slack_3820314.png') }}" alt="Logo" width="60" height="60">
                     <div id="text_03">{{ $companyName }}</div>
                 </div>
             </div>
@@ -130,5 +130,5 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--========== MAIN JS ==========-->
-    <script src="{{ secure_asset('JS/main.js') }}"></script>
+    <script src="{{ asset('JS/main.js') }}"></script>
 @endsection

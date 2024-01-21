@@ -135,5 +135,5 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--========== MAIN JS ==========-->
-    <script src="{{ secure_asset('JS/main.js') }}"></script>
+    <script src="{{ asset('JS/main.js') }}"></script>
 @endsection

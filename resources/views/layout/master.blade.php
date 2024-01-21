@@ -23,16 +23,16 @@ header('Access-Control-Allow-Headers: Content-Type');
     <!--========== CSS ==========-->
     <link
         rel="stylesheet"
-        href="{{ secure_asset('./CSS/style.css') }}"
+        href="{{ asset('./CSS/style.css') }}"
     >
     <link
         rel="stylesheet"
-        href="{{ secure_asset('./CSS/framer.css') }}"
+        href="{{ asset('./CSS/framer.css') }}"
     >
 
     <link
         rel="stylesheet"
-        href="{{ secure_asset('./CSS/box.css') }}"
+        href="{{ asset('./CSS/box.css') }}"
     >
     <link
         rel="stylesheet"
@@ -40,14 +40,12 @@ header('Access-Control-Allow-Headers: Content-Type');
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
         crossorigin="anonymous"
     >
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-        crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>BOXIFY</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     @yield('css')
 </head>
 
@@ -70,7 +68,7 @@ header('Access-Control-Allow-Headers: Content-Type');
         <nav class="nav bd-container">
             <img
                 class="nav_logo"
-                src="{{ secure_asset('./IMG/logo.png') }}"
+                src="{{ asset('./IMG/logo.png') }}"
             >
 
             <header
@@ -81,7 +79,7 @@ header('Access-Control-Allow-Headers: Content-Type');
                     <a href="{{ route('pages.home') }}"><img
                             style="margin-top: 8px;"
                             class="nav_logo"
-                            src="{{ secure_asset('./IMG/logo.png') }}"
+                            src="{{ asset('./IMG/logo.png') }}"
                         ></a>
 
                     <div

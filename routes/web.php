@@ -31,6 +31,7 @@ Route::get('/about', [PageNavigatorController::class, 'viewAbout'])->name('pages
 
 Route::get('/feature/brand-identity', [FeatureController::class, 'viewBranding'])->name('feature.brand');
 Route::post('/feature/brand-identity', [FeatureController::class, 'generateBrandingLogo'])->name('feature.brand.generate');
+Route::post('/feature/brand-identity/download', [FeatureController::class, 'downloadBrandingLogo'])->name('feature.brand.download');
 Route::get('/feature/packaging-design', [FeatureController::class, 'viewPackaging'])->name('feature.packaging');
 Route::post('/feature/packaging-design', [FeatureController::class, 'generatePackagingBox'])->name('feature.packaging.generate');
 
