@@ -32,9 +32,10 @@
           <p>Please fill this form to register</p>
           <!-- form starts here -->
           <form action="{{ route('user.store') }}" method="post" novalidate>
+            @csrf
             <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" name="username" id="username">
+              <label for="name" class="form-label">Username</label>
+              <input type="text" class="form-control" name="name" id="name">
               {{-- <small class="text-danger"></small> --}}
             </div>
             <div class="mb-3">
@@ -55,6 +56,13 @@
               <input type="submit" class="btn btn-success form-control" name="submit" value="Sign Up">
             </div>
             <p class="mb-0">Already have an account ? <a style="color: red" href="{{ route('auth.login') }}">Log In</a></p>
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+  
+            @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
           </form>
           <!-- form ends here -->
         </div>

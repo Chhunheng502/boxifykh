@@ -32,15 +32,16 @@
           <h1>Log In</h1>
           <p>Please login to continue</p>
           <!-- form starts here -->
-          <form action="" method="post" novalidate>
+          <form action="{{ route('auth.login') }}" method="post" novalidate>
+            @csrf
             <div class="mb-3">
-              <label for="user_login" class="form-label">Email or username</label>
-              <input type="text" class="form-control" name="user_login" id="user_login" value="">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" name="email" id="email" value="">
               {{-- <small class="text-danger"></small> --}}
             </div>
             <div class="mb-2">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" name="user_password" id="password">
+              <input type="password" class="form-control" name="password" id="password">
               {{-- <small class="text-danger"></small> --}}
             </div>
             <div class="mb-3 form-check">
@@ -51,6 +52,13 @@
               <input type="submit" class="btn btn-success form-control" name="submit" value="Log In">
             </div>
             <p class="mb-0">Don't have an account ? <a style="color: red" href="{{ route('user.create') }}">Sign Up</a></p>
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+  
+            @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
           </form>
           <!-- form ends here -->
         </div>

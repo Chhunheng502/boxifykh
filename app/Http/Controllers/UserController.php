@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -15,12 +17,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required'],
+            'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (User::created($credentials)) {
+        if (User::create($credentials)) {
             return redirect('login');
         };
  
