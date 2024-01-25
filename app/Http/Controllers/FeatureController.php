@@ -39,11 +39,11 @@ class FeatureController extends Controller
         $coorniate = str_replace('c', '', $matches[1]);
 
         $logoGenerator = new LogoGenerator();
-        $image = Image::canvas(400, 200, '#2F4858');
+        $image = Image::canvas(400, 200, $request->color);
 
         $styling = [
-            'color' => ['code' => '2F4858'],
-            'font' => ['path' => 'FONT/JosefinSans-Regular.ttf'],
+            'color' => ['code' => ''],
+            'font' => ['path' => 'FONT/'.$request->font],
             'icon' => ['path' => 'ICON/'.$request->icon],
         ];
 

@@ -9,7 +9,7 @@ class LogoGenerator
 {
     public function generateLogo($companyName)
     {
-        for($i = 0; $i < 15; $i++) {
+        for($i = 0; $i < 9; $i++) {
             $styling = $this->randomizeStyling();
             $coorniate = rand(0, 3);
             $image = Image::canvas(400, 200, '#'.$styling['color']['code']);

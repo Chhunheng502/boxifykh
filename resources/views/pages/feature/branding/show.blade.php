@@ -106,8 +106,15 @@
                 <h2 style="margin: 10px 0">Choose color</h2>
                 <div class="color-picker">
                     <input type="range" min="0" max="360" step="1" id="colorSlider">
-                    <div class="color-preview"></div>
-                  </div>
+                    <div class="color-preview"><span id="color-code"></span></div>
+                </div>
+                <h2 style="margin: 10px 0">Choose font</h2>
+                <select id="edit-font">
+                    <option value="JosefinSans-Regular.ttf">JosefinSans-Regular</option>
+                    <option value="PlayfairDisplay-Regular.otf'">PlayfairDisplay-Regular</option>
+                    <option value="Poppins-Regular.otf'">Poppins-Regular</option>
+                    <option value="Roboto-Regular.ttf">Roboto-Regular</option>
+                </select>
               </div>
               <button type="button" style="margin-top: 20px" id="download-button"> Download </button>
             </div>
@@ -143,9 +150,49 @@
 
         colorSlider.addEventListener("input", function() {
             var hue = colorSlider.value;
-            var selectedColor = "hsl(" + hue + ", 100%, 50%)";
+            var selectedColor = hslToHex(hue, 100, 50);
+            $('#color-code').text(selectedColor);
             colorPreview.style.backgroundColor = selectedColor;
         });
+
+        function hslToHex(h, s, l) {
+            h /= 360;
+            s /= 100;
+            l /= 100;
+
+            let r, g, b;
+
+            if (s === 0) {
+                r = g = b = l;
+            } else {
+                const hue2rgb = (p, q, t) => {
+                if (t < 0) t += 1;
+                if (t > 1) t -= 1;
+                if (t < 1 / 6) return p + (q - p) * 6 * t;
+                if (t < 1 / 2) return q;
+                if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                return p;
+                };
+
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+
+                r = hue2rgb(p, q, h + 1 / 3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1 / 3);
+            }
+
+            const toHex = (c) => {
+                const hex = Math.round(c * 255).toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            };
+
+            const hexR = toHex(r);
+            const hexG = toHex(g);
+            const hexB = toHex(b);
+
+            return `#${hexR}${hexG}${hexB}`;
+        }
   </script>
 
   <script>
@@ -178,7 +225,8 @@
                 data.append('ori_image', imageId);
                 data.append('text', $('#company-name').text());
                 data.append('icon', iconId + '.png');
-                data.append('color', '');
+                data.append('color', $('#color-code').text());
+                data.append('font', $('#edit-font').val());
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

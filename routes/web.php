@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandIdentityController;
 use App\Http\Controllers\ChatboxController;
@@ -44,3 +45,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::get('/signup', [UserController::class, 'create'])->name('user.create');
 Route::post('/signup', [UserController::class, 'store'])->name('user.store');
+
+Route::get('/admin/dashboard', [AdminController::class, 'viewDashboard'])->name('admin.dashboard');
+Route::get('/admin/users', [AdminController::class, 'viewUsers'])->name('admin.users');

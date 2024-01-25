@@ -47,6 +47,45 @@ header('Access-Control-Allow-Headers: Content-Type');
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     @yield('css')
+
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            border: none;
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #fff;
+            padding: 2px;
+            min-width: 200px;
+        }
+
+        .dropdown-menu li {
+            list-style-type: none;
+        }
+
+        .arrow {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 5px 0 5px;
+            border-color: #000 transparent transparent transparent;
+            margin-left: 5px;
+        }
+
+        .open {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,12 +147,23 @@ header('Access-Control-Allow-Headers: Content-Type');
                                     class="nav__link"
                                 >AboutUs</a></li>
 
-                            <li class="nav__item"><a
-                                    style="background-color: #1271FF; padding: 10px; color: white; border-radius: 20px;"
-                                    href="{{ route('auth.view') }}"
-                                >Login</a></li>
-
-
+                            <div style="width: 200px">
+                                @if (Auth::check())
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle" onclick="toggleDropdown()"> Welcome, {{ Auth::user()->name }} <span class="arrow"></span></div>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="">Logout</a></li>
+                                    </ul>
+                                  </div>
+                                @else                                    
+                                    <a
+                                        style="background-color: #1271FF; padding: 10px; color: white; border-radius: 20px;"
+                                        href="{{ route('auth.view') }}"
+                                    >
+                                        Login
+                                    </a>
+                                @endif
+                                </div>
                         </ul>
                     </div>
 
@@ -207,6 +257,13 @@ header('Access-Control-Allow-Headers: Content-Type');
     </footer>
 
     @yield('js')
+
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.classList.toggle('open');
+        }
+    </script>
 </body>
 
 </html>
