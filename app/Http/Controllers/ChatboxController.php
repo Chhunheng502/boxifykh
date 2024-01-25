@@ -8,7 +8,7 @@ class ChatboxController extends Controller
 {
     public function index()
     {
-        return view('feature.chatbox');
+        return view('pages.feature.chatbox');
     }
 
     public function send()
