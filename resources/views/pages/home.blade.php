@@ -69,7 +69,7 @@
                                 style="color:rgb(82, 146, 255)">BOXIFY</span> will generate professional and custom
                             packaging designs tailored to your brand's unique identity.</h2>
                         <a
-                            href="feature.packaging"
+                            href="{{ route('feature.packaging') }}"
                             class="button"
                         >Get Started</a>
                     </div>
@@ -99,7 +99,7 @@
                             service provides expert design and packaging advice and guidance to help you make informed
                             decisions and achieve your business goals.</p>
                         <a
-                            href="chatbox.php"
+                            href="{{ route('chatbox.index') }}"
                             class="button"
                         >Get Started</a>
                     </div>
