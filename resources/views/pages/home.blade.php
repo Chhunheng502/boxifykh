@@ -14,7 +14,7 @@
                             style="color:rgb(82, 146, 255)"
                         >BOXIFY</span> – the platform that helps you stand out in the market</h2>
                     <a
-                        href="feature.php"
+                        href="{{ route('pages.feature') }}"
                         class="button"
                     >Start Designing</a>
                 </div>
@@ -43,7 +43,7 @@
                         able to craft a unique brand identity that accurately represents your business, ensuring brand
                         consistency and recognition.</p>
                     <a
-                        href="about.php"
+                        href="{{ route('feature.brand') }}"
                         class="button"
                     >Get Started</a>
                 </div>
@@ -69,7 +69,7 @@
                                 style="color:rgb(82, 146, 255)">BOXIFY</span> will generate professional and custom
                             packaging designs tailored to your brand's unique identity.</h2>
                         <a
-                            href="#"
+                            href="feature.packaging"
                             class="button"
                         >Get Started</a>
                     </div>
