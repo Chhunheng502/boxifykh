@@ -152,7 +152,12 @@ header('Access-Control-Allow-Headers: Content-Type');
                                 <div class="dropdown">
                                     <div class="dropdown-toggle" onclick="toggleDropdown()"> Welcome, {{ Auth::user()->name }} <span class="arrow"></span></div>
                                     <ul class="dropdown-menu">
-                                      <li><a href="">Logout</a></li>
+                                      <li>
+                                        <form action="{{ route('auth.logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit">Logout</a>
+                                        </form>
+                                        </li>
                                     </ul>
                                   </div>
                                 @else                                    
